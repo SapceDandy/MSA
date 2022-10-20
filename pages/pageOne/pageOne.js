@@ -1,12 +1,18 @@
 import {useState, useEffect} from "react";
 import styles from "./pageOne.module.css";
+import Link from "next/link";
+import uniqid from 'uniqid';
 
 export default function PageOne() {
+    const uniqueValue = uniqid();
     const currentDate = new Date();
+    const currentDateString = `${currentDate.getFullYear()}-${((currentDate.getMonth() + 1) < 10) ? "0" + (currentDate.getMonth() + 1) : (currentDate.getMonth() + 1)}-${currentDate.getDate()}`
     const [wasClicked, setWasClicked] = useState(false);
     const [firstName, setFirstName] = useState("");
     const [email, setEmail] = useState("");
-    const [schedule, setSchedule] = useState(`${currentDate.getFullYear()}-${((currentDate.getMonth() + 1) < 10) ? "0" + (currentDate.getMonth() + 1) : (currentDate.getMonth() + 1)}-${currentDate.getDate()}`);
+    const [schedule, setSchedule] = useState(currentDateString);
+    const emailMatch = String(email).toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+    const noNumbers = String(firstName).match(/[0-9]/);
 
     const click = () => {
         setWasClicked(!wasClicked);
@@ -20,25 +26,30 @@ export default function PageOne() {
         <>
             {(wasClicked) && (<div className = {styles.popUpWrapper}>
                 <div className = {styles.popUp}>
-                    <div className = {styles.box}>
-                        <button className = {styles.popUpButton} type = "button" onClick = {() => click()}>X</button>
-                    </div>
-                    <div style = {{display: "inline-flex", width: "100%", justifyContent: "center", alignItems: "center", margin: ".5rem"}}>
+                    <div style = {{display: "inline-flex", width: "100%", justifyContent: "center", alignItems: "center", margin: ".75rem .25rem"}}>
                         <div className = {styles.percentOuter}>
                             <div className = {styles.percentInner}>
                                 <div style = {{display: "inline-flex", width: "100%", justifyContent: "center", alignItems: "center", textAlign: "center", fontWeight: "bold", color: "white"}}>70% Complete</div>
                             </div>
                         </div>
+                        <div style = {{display: "flex", width: "10%", justifyContent: "right", alignItems: "center"}}>
+                            <button className = {styles.popUpButton} type = "button" onClick = {() => click()}>X</button>
+                        </div> 
                     </div>
                     <div style = {{display: "inline-flex", width: "100%", background: "lightgrey", height: "4px"}} />
                     <form>
                         <h3>Enter your Name and Email Address below to register for the webinar and secure your seat</h3>
                         <input value = {schedule} type = "date" onChange = {(e) => setSchedule(e.target.value)} />
+                        {(currentDateString >= schedule) && (<span style = {{color: "red"}}>Date must be in the future</span>)}
                         <input placeholder = "First Name" value = {firstName} onChange = {(e) => setFirstName(e.target.value)} />
+                        {((!firstName) || (noNumbers)) && (<span style = {{color: "red"}}>Please enter your name</span>)}
                         <input placeHolder = "Email" value = {email} onChange = {(e) => setEmail(e.target.value)} />
+                        {((!emailMatch) || (!email)) && (<span style = {{color: "red"}}>Please enter a valid email</span>)}
                         <div>
-                            <button className = "button" type = "button" disabled = {(!firstName) || (!email) || ()}>YES! RESERVE MY SEAT!</button>
-                            <small style = {{fontStyle: "italic"}}>Your Information is 100% Secure</small>
+                            <Link href = {`/success/${uniqueValue}`}>
+                                <button className = "button" type = "button" disabled = {(!firstName) || (noNumbers) || (!email) || (!emailMatch) || (currentDateString >= schedule)}>YES! RESERVE MY SEAT!</button>
+                            </Link>
+                            🔒<small style = {{fontStyle: "italic"}}>Your Information is 100% Secure</small>
                         </div>
                     </form>
                 </div>

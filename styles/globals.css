@@ -44,6 +44,17 @@ a {
   transition: all .2s ease-in-out;
 }
 
+.button:disabled {
+  color: black;
+  background-color: lightgrey;
+  cursor: default;
+}
+
+.button:disabled:hover {
+  color: black;
+  background-color: lightgrey;
+}
+
 @media screen and (min-width: 450px) {
   .button:hover {
     background-color: rgb(196, 43, 43);

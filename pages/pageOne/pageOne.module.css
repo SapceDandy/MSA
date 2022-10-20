@@ -15,7 +15,7 @@
     width: 40%;
     min-width: 320px;
     max-width: 500px;
-    height: 440px;
+    height: max-content;
     flex-direction: column;
     background-color: white;
     justify-content: center;
@@ -40,18 +40,6 @@
     outline: none;
 }
 
-.popUpWrapper .popUp .box {
-    display: flex;
-    width: 42%;
-    min-width: 328px;
-    max-width: 510px;
-    height: 446px;
-    pointer-events: none;
-    position: absolute;
-    justify-content: right;
-    z-index: 11;
-}
-
 .percentOuter {
     display: flex;
     width: 80%;
@@ -68,23 +56,24 @@
     background-color: rgb(24, 140, 241);
 }
 
-.popUpWrapper .popUp .box .popUpButton {
+.popUpWrapper .popUp .popUpButton {
     display: flex;
-    position: absolute;
+    height: max-content;
+    z-index: 11;
     font-weight: bold;
+    text-align: center;
     padding: .25rem .5rem;
     color: white;
-    pointer-events: all;
     background-color: black;
     border-radius: 100px;
     border: none;
     cursor: pointer;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, .25);
     transition: all .2s ease-in-out;
-    z-index: 12;
 }
 
 @media screen and (min-width: 450px){
-    .popUpWrapper .popUp .box .popUpButton:hover {
+    .popUpWrapper .popUp .popUpButton:hover {
         background-color: lightgray;
         color: black;
         transition: all .2s ease-in-out;
