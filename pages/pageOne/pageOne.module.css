@@ -1,0 +1,157 @@
+.popUpWrapper {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.popUpWrapper .popUp {
+    display: flex;
+    border-radius: 10px;
+    width: 40%;
+    min-width: 320px;
+    max-width: 500px;
+    height: 440px;
+    flex-direction: column;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 10;
+}
+
+.popUpWrapper .popUp form {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    row-gap: 1rem;
+    padding: 0rem 2rem 2rem 2rem;
+}
+
+.popUpWrapper .popUp form input {
+    padding: .5rem;
+}
+
+.popUpWrapper .popUp form input:focus {
+    outline: none;
+}
+
+.popUpWrapper .popUp .box {
+    display: flex;
+    width: 42%;
+    min-width: 328px;
+    max-width: 510px;
+    height: 446px;
+    pointer-events: none;
+    position: absolute;
+    justify-content: right;
+    z-index: 11;
+}
+
+.percentOuter {
+    display: flex;
+    width: 80%;
+    height: 1.7rem;
+    background-color: lightgray;
+}
+
+.percentOuter .percentInner {
+    display: flex;
+    width: 70%;
+    height: 1.7rem;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(24, 140, 241);
+}
+
+.popUpWrapper .popUp .box .popUpButton {
+    display: flex;
+    position: absolute;
+    font-weight: bold;
+    padding: .25rem .5rem;
+    color: white;
+    pointer-events: all;
+    background-color: black;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    z-index: 12;
+}
+
+@media screen and (min-width: 450px){
+    .popUpWrapper .popUp .box .popUpButton:hover {
+        background-color: lightgray;
+        color: black;
+        transition: all .2s ease-in-out;
+    }
+}
+
+.popUpWrapper .popUpBackground {
+    display: flex;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .5);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 9;
+}
+
+.topBar {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    padding: 1rem .5rem;
+    background-color: black;
+    color: white;
+}
+
+.topBar .topBarLogo {
+    display: inline-flex;
+    width: 15%;
+    justify-content: center; 
+    align-items: center;
+}
+
+.mainText {
+    display: flex;
+    width: 80%;
+    padding: 2rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.middleTop {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 1200px) {
+    .topBar .topBarLogo {
+        width: 100%;
+    }
+
+    .mainText {  
+        width: 100%;
+    }
+
+    .mainText h1{
+        font-size: 1.25rem;     
+    }
+
+    .middleTop {
+        flex-direction: column;
+        row-gap: 2rem;
+    }
+
+    .middleTop img {
+        padding: 0rem 1rem;
+    }
+}
