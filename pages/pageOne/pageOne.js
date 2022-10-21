@@ -2,6 +2,7 @@ import {useState, useEffect} from "react";
 import styles from "./pageOne.module.css";
 import Link from "next/link";
 import uniqid from 'uniqid';
+import Image from 'next/image'
 
 export default function PageOne() {
     const uniqueValue = uniqid();
@@ -57,7 +58,7 @@ export default function PageOne() {
             </div>)}
             <div className = {styles.topBar}>
                 <div className = {styles.topBarLogo}>
-                    <img src = "./msaLogo.png" alt = "image" title = "image" style = {{display: "flex", width: "100%", height: "100%", maxWidth: "110px"}} />
+                    <Image src = "/msaLogo.png" alt = "image" title = "image" width = "110" height = "50" />
                 </div>
                 <div />
             </div>
@@ -66,7 +67,7 @@ export default function PageOne() {
             </div>
             <div className = {styles.middleTop}>
                 <div style = {{display: "inline-flex", width: "100%", justifyContent: "center", alignContent: "center"}}>
-                    <img src = "./DMN.JPG" alt = "image" title = "image" style = {{width: "100%", height: "100%", maxWidth: "600px"}}/>
+                    <Image src = "/DMN.JPG" alt = "image" title = "image" width = "600" height = "400" style = {{zIndex: "2"}} />
                 </div>
                 <div style = {{display: "inline-flex", width: "100%", justifyContent: "center", alignItems: "center", flexDirection: "column", rowGap: "2rem"}}>
                     <div style = {{display: "inline-flex", flexDirection: "column", width: "60%", justifyContent: "center", alignItems: "center"}}>
