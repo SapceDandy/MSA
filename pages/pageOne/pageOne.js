@@ -47,7 +47,7 @@ export default function PageOne() {
                         {((!emailMatch) || (!email)) && (<span style = {{color: "red"}}>Please enter a valid email</span>)}
                         <div>
                             <Link href = {`/success/${uniqueValue}`}>
-                                <button className = "button" type = "button" disabled = {(!firstName) || (noNumbers) || (!email) || (!emailMatch) || (currentDateString >= schedule)}>YES! RESERVE MY SEAT!</button>
+                                <button className = "button" type = "button" onClick = {() => click()} disabled = {(!firstName) || (noNumbers) || (!email) || (!emailMatch) || (currentDateString >= schedule)}>YES! RESERVE MY SEAT!</button>
                             </Link>
                             🔒<small style = {{fontStyle: "italic"}}>Your Information is 100% Secure</small>
                         </div>

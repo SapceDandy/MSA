@@ -1,0 +1,228 @@
+.head {
+    display: flex;
+    background-color: black;
+    color: white;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 4rem;
+}
+
+.mainSection {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 4rem;
+}
+
+@media screen and (max-width: 1200px) {
+    .mainSection {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        row-gap: 2rem;
+        justify-content: center;
+        align-items: flex-start;
+        margin-bottom: 4rem;
+    }
+}
+
+.mainSection .left {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainSection .left .textSection {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    row-gap: 2rem;
+    height: auto; 
+    max-width: "800px";
+    justify-content: left;
+}
+
+.mainSection .right {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainSection .right .group {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+}
+
+.mainSection .right .group .line {
+    display: flex;
+    width: 100%;
+    height: 1rem;
+    background-color: turquoise;
+}
+
+.mainSection .right .group .smallLine {
+    display: flex;
+    width: 90%;
+    height: 2px;
+    background-color: lightgray;
+}
+
+.mainSection .right .group .topGroup {
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    padding: 1rem;
+    row-gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.mainSection .right .group .topGroup .topGroupMain {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 2rem;
+}
+
+.mainSection .right .group .topGroup .topGroupMain .topGroupLeft {
+    display: inline-flex;
+    width: 30%; 
+    height: 100px;
+    background: turquoise;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.mainSection .right .group .topGroup .topGroupMain .topGroupRight {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    row-gap: .5rem;
+    text-align: left;
+    justify-content: left;
+}
+
+.mainSection .right .group .bottomGroup {
+    display: flex;
+    width: 100%;
+    height: max-content;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    row-gap: 1rem;
+    color: white;
+    background-color: rgb(244, 42, 32);
+    padding-bottom: 2rem;
+}
+
+.mainSection .right .group .bottomGroup .topText {
+    display: flex;
+    width: 90%;
+    justify-content: left;
+}
+
+.mainSection .right .group .bottomGroup .bubble {
+    display: flex;
+    width: 90%;
+    padding: 1.5rem 1rem;
+    justify-content: left;
+    align-items: center;
+    background-color: rgb(195, 1, 1);
+    border-radius: 10px;
+}
+
+.mainSection .right .group .bottomGroup .sms {
+    display: flex;
+    width: 90%;
+    justify-content: center;
+}
+
+.mainSection .right .group .bottomGroup .sms button{
+    display: flex;
+    color: white;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: .5rem 1rem;
+    font-size: 2rem;
+    transition: all .35s ease-in-out;
+}
+
+.mainSection .right .group .bottomGroup form {
+    display: flex;
+    width: 60%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1rem;
+}
+
+.mainSection .right .group .bottomGroup form input {
+    display: flex;
+    width: 30%;
+    min-width: 230px;
+    border: none;
+    padding: .5rem .25rem;
+}
+
+.mainSection .right .group .bottomGroup form input:focus {
+    outline: none;
+}
+
+.mainSection .right .group .bottomGroup form button {
+    display: flex;
+    width: 30%;
+    min-width: 230px;
+    border: none;
+    color: rgb(195, 1, 1);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+    cursor: pointer;
+    padding: .5rem .25rem;
+    transition: all .2s ease-in-out;
+}
+
+.mainSection .right .group .bottomGroup form button:disabled {
+    color: black;
+    background-color: lightgrey;
+    cursor: default;
+} 
+
+.mainSection .right .group .bottomGroup form button:disabled:hover {
+    color: black;
+    background-color: lightgrey;
+}
+
+@media screen and (min-width: 450px) {
+    .mainSection .right .group .bottomGroup .sms button:hover {
+        padding: .5rem 1rem;
+        background-color: white;
+        color: rgb(195, 1, 1);
+        transition: all .35s ease-in-out;
+    }
+
+    .mainSection .right .group .bottomGroup form button:hover {
+        color: white;
+        background-color: rgba(0, 0, 0, .65);
+        transition: all .2s ease-in-out;
+    }
+}

@@ -72,7 +72,7 @@
     transition: all .2s ease-in-out;
 }
 
-@media screen and (min-width: 450px){
+@media screen and (min-width: 450px) {
     .popUpWrapper .popUp .popUpButton:hover {
         background-color: lightgray;
         color: black;
