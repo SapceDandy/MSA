@@ -63,7 +63,7 @@ export default function PageOne() {
                 <div />
             </div>
             <div className = {styles.mainText}>
-                <h1>“How to Double your UBER and Lyft Driver income in 30 Days or Less. Get ALL of your Money immediately and stop giving away HALF of the money you’ve EARNED!!!”</h1>
+                <h1>"How to Double your Income as a Driver in 30 days or less. Stop giving away HALF of the Money you’ve EARNED to Uber and Lyft. Get ALL of your Money Immediately!!!“</h1>
             </div>
             <div className = {styles.middleTop}>
                 <div style = {{display: "inline-flex", width: "100%", justifyContent: "center", alignContent: "center"}}>
@@ -76,7 +76,7 @@ export default function PageOne() {
                             <div style = {{display: "flex", width: "100%", flexDirection: "row", columnGap: "1rem"}}>
                                 <span style = {{display: "inline-flex", fontSize: "1.25rem", color: "blue",}}>☑</span>
                                 <span>
-                                    How to collect and keep 100% of the money from customers who book rides with you and enter your vehicle.  You do “ALL” the Work. You keep “ALL” the Money!!!
+                                    How to collect and keep 100% of the money from customers who book rides with you and enter your vehicle.  You do “ALL” the Work. You keep “ALL” the Money™!!!
                                 </span>
                             </div>
                             <div style = {{display: "flex", width: "100%", flexDirection: "row", columnGap: "1rem"}}>
