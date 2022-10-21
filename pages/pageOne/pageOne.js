@@ -63,7 +63,7 @@ export default function PageOne() {
                 <div />
             </div>
             <div className = {styles.mainText}>
-                <h1>“How to Double your Rideshare Income in 60 Days or Less. Stop giving away HALF of the money you’ve EARNED to Uber and Lyft!!!”</h1>
+                <h1>“How to Double your UBER and Lyft Driver income in 30 Days or Less. Get ALL of your Money immediately and stop giving away HALF of the money you’ve EARNED!!!”</h1>
             </div>
             <div className = {styles.middleTop}>
                 <div style = {{display: "inline-flex", width: "100%", justifyContent: "center", alignContent: "center"}}>
@@ -76,19 +76,19 @@ export default function PageOne() {
                             <div style = {{display: "flex", width: "100%", flexDirection: "row", columnGap: "1rem"}}>
                                 <span style = {{display: "inline-flex", fontSize: "1.25rem", color: "blue",}}>☑</span>
                                 <span>
-                                    How to collect 100% of the money from customers who book rides and enter your vehicle.  You do “ALL” the Work. You keep “ALL” the Money!!!
+                                    How to collect and keep 100% of the money from customers who book rides with you and enter your vehicle.  You do “ALL” the Work. You keep “ALL” the Money!!!
                                 </span>
                             </div>
                             <div style = {{display: "flex", width: "100%", flexDirection: "row", columnGap: "1rem"}}>
                                 <span style = {{display: "inline-flex", fontSize: "1.25rem", color: "blue",}}>☑</span>
                                 <span>
-                                    How to use technology to bring in a flood of customers who are MORE than willing to pay you rather than pay Uber. Customers want You and your service, not their company!
+                                    How to bring in a flood of customers who are MORE than willing to pay you rather than pay Uber or Lyft. Without you having to say one Word! And even if you have ZERO experience as a rideshare driver.
                                 </span>
                             </div>
                             <div style = {{display: "flex", width: "100%", flexDirection: "row", columnGap: "1rem"}}>
                                 <span style = {{display: "inline-flex", fontSize: "1.25rem", color: "blue",}}>☑</span>
                                 <span>
-                                    How to legally protect yourself and your assets from liability while driving and earn a consistent income that more than replaces your 9-5 in less time with less hassle so you can truly “Be your own BOSS”.
+                                    How to totally protect yourself and your assets from accident liability at “ALL” times. Do it easily and inexpensively while driving to earn a consistent income that more than replaces your 9-5 in less time with less hassle.
                                 </span>
                             </div>
                         </div>
