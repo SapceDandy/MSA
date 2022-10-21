@@ -8,6 +8,7 @@ export default function ID() {
     const [phoneButton, setPhoneButton] = useState(false);
     const [numberSent, setNumberSent] = useState(false);
     const isMatch = String(phone).match(/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/);
+    const justNumbers = phone.match(/^\d{10}$/);
 
     const pressed = () => {
         setPhoneButton(!phoneButton);
@@ -68,7 +69,7 @@ export default function ID() {
                             </div>
                             {(phoneButton && !numberSent) && (<form>
                                 <input type = "tel" placeholder = "Ex: (512) 556-4323" value = {phone} onChange = {(e) => setPhone(e.target.value)} />
-                                <button type = "button" onClick = {() => setNumberSent(!numberSent)} disabled = {!isMatch}>Send</button>
+                                <button type = "button" onClick = {() => setNumberSent(!numberSent)} disabled = {(!isMatch) && (!justNumbers)}>Send</button>
                             </form>)}
                             {(numberSent) && (<small>We will message you the day of the webinar!</small>)}
                         </div>
