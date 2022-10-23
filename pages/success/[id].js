@@ -61,7 +61,7 @@ export default function ID() {
                                 <h4>YOUR WEBINAR LINK (YOU MUST DISABLE AD BLOCKERS)</h4>
                             </div>
                             <div className = {styles.bubble}>
-                               <a href = "https://events.genndi.com/live/notsurewhatthislinkwillbe" target = "_blank" rel="noreferrer" style = {{textDecoration: "underline", color: "blue", fontWeight: "bold"}}>Webinar Link</a>
+                               <a href = "https://events.genndi.com/live/notsurewhatthislinkwillbe" target = "_blank" rel="noreferrer" style = {{textDecoration: "underline", color: "white", fontWeight: "bold"}}>Webinar Link</a>
                             </div>
                             <div className = {styles.smallLine} style = {{margin: "2rem 0rem"}}/>
                             <div className = {styles.sms} >

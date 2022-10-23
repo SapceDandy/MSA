@@ -146,6 +146,14 @@
     align-items: center;
     background-color: rgb(195, 1, 1);
     border-radius: 10px;
+    transition: all .2s ease-in-out;
+}
+
+@media screen and (min-width: 900px) {
+    .mainSection .right .group .bottomGroup .bubble a:hover {
+        scale: 1.15;
+        transition: all .2s ease-in-out;
+    }
 }
 
 .mainSection .right .group .bottomGroup .sms {

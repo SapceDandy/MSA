@@ -41,11 +41,11 @@ export default function PageOne() {
                     <form>
                         <h3>Enter your Name and Email Address below to register for the webinar and secure your seat</h3>
                         <input value = {schedule} type = "date" onChange = {(e) => setSchedule(e.target.value)} />
-                        {(currentDateString >= schedule) && (<span style = {{color: "red"}}>Date must be in the future</span>)}
+                        {(currentDateString >= schedule) && (<span>Date must be in the future</span>)}
                         <input placeholder = "First Name" value = {firstName} onChange = {(e) => setFirstName(e.target.value)} />
-                        {((!firstName) || (noNumbers)) && (<span style = {{color: "red"}}>Please enter your name</span>)}
+                        {((!firstName) || (noNumbers)) && (<span>Please enter your name</span>)}
                         <input placeHolder = "Email" value = {email} onChange = {(e) => setEmail(e.target.value)} />
-                        {((!emailMatch) || (!email)) && (<span style = {{color: "red"}}>Please enter a valid email</span>)}
+                        {((!emailMatch) || (!email)) && (<span>Please enter a valid email</span>)}
                         <div>
                             <Link href = {`/success/${uniqueValue}`}>
                                 <button className = "button" type = "button" onClick = {() => click()} disabled = {(!firstName) || (noNumbers) || (!email) || (!emailMatch) || (currentDateString >= schedule)}>YES! RESERVE MY SEAT!</button>
