@@ -1,11 +1,14 @@
-import {useState, useEffect} from "react";
-import styles from "./pageOne.module.css";
-import Link from "next/link";
+import {useState, useEffect, useRef} from "react";
+import styles from "./pageOne.module.css";;
 import uniqid from 'uniqid';
-import Image from 'next/image'
+import Image from 'next/image';
+import emailjs from "@emailjs/browser";
+import { useRouter } from "next/router";
 
 export default function PageOne() {
     const uniqueValue = uniqid();
+    const form = useRef();
+    const router = useRouter();
     const currentDate = new Date();
     const currentDateString = `${currentDate.getFullYear()}-${((currentDate.getMonth() + 1) < 10) ? "0" + (currentDate.getMonth() + 1) : (currentDate.getMonth() + 1)}-${currentDate.getDate()}`
     const [wasClicked, setWasClicked] = useState(false);
@@ -23,6 +26,24 @@ export default function PageOne() {
         (wasClicked) ? document.body.classList.add('active') : document.body.classList.remove('active');
     })
 
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm('service_vr1v8ck', 'template_md9uxvc', form.current, 'TwOG1fPg9_FkuE3S3')
+            .then((result) => {
+                click();
+                router.push({
+                    pathname: `/success/${uniqueValue}`,
+                    query: {
+                        name: firstName,
+                    }
+                })
+                e.target.reset();
+            }, (error) => {
+                console.log(error.text);
+            });
+    };
+
     return (
         <>
             {(wasClicked) && (<div className = {styles.popUpWrapper}>
@@ -38,18 +59,16 @@ export default function PageOne() {
                         </div> 
                     </div>
                     <div style = {{display: "inline-flex", width: "100%", background: "lightgrey", height: "4px"}} />
-                    <form>
+                    <form ref = {form} onSubmit = {sendEmail}>
                         <h3>Enter your Name and Email Address below to register for the webinar and secure your seat</h3>
-                        <input value = {schedule} type = "date" onChange = {(e) => setSchedule(e.target.value)} />
+                        <input value = {schedule} name = "webinar_date" type = "date" onChange = {(e) => setSchedule(e.target.value)} required/>
                         {(currentDateString >= schedule) && (<span>Date must be in the future</span>)}
-                        <input placeholder = "First Name" value = {firstName} onChange = {(e) => setFirstName(e.target.value)} />
+                        <input placeholder = "First Name" name = "from_name" value = {firstName} onChange = {(e) => setFirstName(e.target.value)} required/>
                         {((!firstName) || (noNumbers)) && (<span>Please enter your name</span>)}
-                        <input placeHolder = "Email" value = {email} onChange = {(e) => setEmail(e.target.value)} />
+                        <input placeHolder = "Email" name = "user_email" type = "email" value = {email} onChange = {(e) => setEmail(e.target.value)} required/>
                         {((!emailMatch) || (!email)) && (<span>Please enter a valid email</span>)}
                         <div>
-                            <Link href = {`/success/${uniqueValue}`}>
-                                <button className = "button" type = "button" onClick = {() => click()} disabled = {(!firstName) || (noNumbers) || (!email) || (!emailMatch) || (currentDateString >= schedule)}>YES! RESERVE MY SEAT!</button>
-                            </Link>
+                            <button className = "button" type = "submit" disabled = {(!firstName) || (noNumbers) || (!email) || (!emailMatch) || (currentDateString >= schedule)}>YES! RESERVE MY SEAT!</button>
                             🔒<small style = {{fontStyle: "italic"}}>Your Information is 100% Secure</small>
                         </div>
                     </form>

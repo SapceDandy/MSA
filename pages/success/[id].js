@@ -1,9 +1,19 @@
-import {useState, useEffect} from "react";
+import {useState, useRef } from "react";
 import styles from "./success.module.css";
 import { FaCalendarAlt } from "react-icons/fa";
 import { BsFillPeopleFill } from "react-icons/bs";
+import emailjs from "@emailjs/browser";
 
-export default function ID() {
+export  const getServerSideProps = (context) => {
+    return {
+        props: { 
+            name: context?.query?.name //pass it to the page props
+        }
+    }
+}
+
+export default function ID(props) {
+    const form = useRef();
     const [phone, setPhone] = useState("");
     const [phoneButton, setPhoneButton] = useState(false);
     const [numberSent, setNumberSent] = useState(false);
@@ -13,6 +23,19 @@ export default function ID() {
     const pressed = () => {
         setPhoneButton(!phoneButton);
     }
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm('service_vr1v8ck', 'template_41y7www', form.current, 'TwOG1fPg9_FkuE3S3')
+            .then((result) => {
+                setNumberSent(!numberSent);
+                e.target.reset();
+            }, (error) => {
+                console.log(error.text);
+            });
+    };
+
     return(
         <>
             <div className = {styles.head}>
@@ -67,9 +90,10 @@ export default function ID() {
                             <div className = {styles.sms} >
                                 <button type = "button" onClick={() => pressed()}>Get SMS Reminder</button>
                             </div>
-                            {(phoneButton && !numberSent) && (<form>
-                                <input type = "tel" placeholder = "Ex: (512) 556-4323" value = {phone} onChange = {(e) => setPhone(e.target.value)} />
-                                <button type = "button" onClick = {() => setNumberSent(!numberSent)} disabled = {((!isMatch) && (!justNumbers))}>Send</button>
+                            {(phoneButton && !numberSent) && (<form ref = {form} onSubmit = {sendEmail}>
+                                <input type = "text" name = "from_name" value = {props?.name} style = {{display: "none"}}/>
+                                <input type = "tel" name = "user_number" placeholder = "Ex: (512) 556-4323" value = {phone} onChange = {(e) => setPhone(e.target.value)} />
+                                <button type = "submit" disabled = {((!isMatch) && (!justNumbers))}>Send</button>
                             </form>)}
                             {(numberSent) && (<small>We will message you the day of the webinar!</small>)}
                         </div>
