@@ -7,7 +7,8 @@ import emailjs from "@emailjs/browser";
 export  const getServerSideProps = (context) => {
     return {
         props: { 
-            name: context?.query?.name //pass it to the page props
+            name: context?.query?.name,
+            email: context?.query?.userEmail,  //pass it to the page props
         }
     }
 }
@@ -92,6 +93,7 @@ export default function ID(props) {
                             </div>
                             {(phoneButton && !numberSent) && (<form ref = {form} onSubmit = {sendEmail}>
                                 <input type = "text" name = "from_name" value = {props?.name} style = {{display: "none"}}/>
+                                <input type = "text" name = "user_email" value = {props?.email} style = {{display: "none"}}/>
                                 <input type = "tel" name = "user_number" placeholder = "Ex: (512) 556-4323" value = {phone} onChange = {(e) => setPhone(e.target.value)} />
                                 <button type = "submit" disabled = {((!isMatch) && (!justNumbers))}>Send</button>
                             </form>)}
