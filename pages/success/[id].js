@@ -3,6 +3,7 @@ import styles from "./success.module.css";
 import { FaCalendarAlt } from "react-icons/fa";
 import { BsFillPeopleFill } from "react-icons/bs";
 import emailjs from "@emailjs/browser";
+import Head from 'next/head'
 
 export  const getServerSideProps = (context) => {
     return {
@@ -39,6 +40,12 @@ export default function ID(props) {
 
     return(
         <>
+            <Head>
+                <title>You Are Registered</title>
+                <meta name="description" content="You Are Registered" />
+                <link rel="icon" href="/favicon.png" />
+            </Head>
+            
             <div className = {styles.head}>
                 <h1>Congratulations... You've been registered!</h1>
             </div>
