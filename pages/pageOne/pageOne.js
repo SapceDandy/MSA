@@ -36,7 +36,7 @@ export default function PageOne() {
                     pathname: `/success/${uniqueValue}`,
                     query: {
                         name: firstName,
-                        userEmail: email,
+                        email: email,
                     }
                 })
                 e.target.reset();

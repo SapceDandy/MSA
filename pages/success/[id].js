@@ -8,7 +8,7 @@ export  const getServerSideProps = (context) => {
     return {
         props: { 
             name: context?.query?.name,
-            email: context?.query?.userEmail,  //pass it to the page props
+            email: context?.query?.email,
         }
     }
 }
