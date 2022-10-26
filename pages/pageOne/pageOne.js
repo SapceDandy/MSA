@@ -84,7 +84,7 @@ export default function PageOne() {
                 <div />
             </div>
             <div className = {styles.mainText}>
-                <h1 style = {{fontSize: "1rem"}}>"How to Double your Income as a Driver in 30 days or less. Stop giving away HALF of the Money you’ve EARNED to Uber and Lyft. Get ALL of your Money Immediately!!!“</h1>
+                <h1 style = {{fontSize: "2rem"}}>"How to Double your Income as a Driver in 30 days or less. Stop giving away HALF of the Money you’ve EARNED to Uber and Lyft. Get ALL of your Money Immediately!!!“</h1>
             </div>
             <div className = {styles.middleTop}>
                 <div style = {{display: "inline-flex", width: "100%", justifyContent: "center", alignContent: "center"}}>
