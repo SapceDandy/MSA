@@ -79,7 +79,7 @@ export default function PageOne() {
 
             <div className = {styles.topBar}>
                 <div className = {styles.topBarLogo}>
-                    <Image src = "/msaLogo.png" alt = "image" title = "image" width = "110" height = "50" />
+                    <Image src = "/msaLogo.png" alt = "image" title = "image" width = "88" height = "40" />
                 </div>
                 <div />
             </div>
