@@ -140,4 +140,8 @@
         flex-direction: column;
         row-gap: 2rem;
     }
+
+    .middleTop img {
+        padding: 0rem 1rem;
+    }
 }
