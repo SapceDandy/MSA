@@ -83,7 +83,7 @@ export default function ID(props) {
                                 <div className = {styles.topGroupLeft} ><i style = {{color: "white", fontSize: "3rem"}}><BsFillPeopleFill /></i></div>
                                 <div className = {styles.topGroupRight} >
                                     <span style = {{color: "turquoise"}}>PRESENTERS</span>
-                                    <span>TYRIE JAMERSON</span>
+                                    <span>TYRIE JAMERSON MBA UNIV. OF CHICAGO (AMERICAS TOP RATED BUSINESS SCHOOL)</span>
                                 </div>
                             </div>
                         </div>
@@ -96,7 +96,7 @@ export default function ID(props) {
                             </div>
                             <div className = {styles.smallLine} style = {{margin: "2rem 0rem"}}/>
                             <div className = {styles.sms} >
-                                <button type = "button" onClick={() => pressed()}>Get SMS Reminder</button>
+                                <button type = "button" onClick={() => pressed()}>CLICK HERE TO GET SMS REMINDER</button>
                             </div>
                             {(phoneButton && !numberSent) && (<form ref = {form} onSubmit = {sendEmail}>
                                 <input type = "text" name = "from_name" value = {props?.name} style = {{display: "none"}}/>
