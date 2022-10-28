@@ -83,7 +83,7 @@ export default function ID(props) {
                                 <div className = {styles.topGroupLeft} ><i style = {{color: "white", fontSize: "3rem"}}><BsFillPeopleFill /></i></div>
                                 <div className = {styles.topGroupRight} >
                                     <span style = {{color: "turquoise"}}>PRESENTERS</span>
-                                    <span>TYRIE JAMERSON MBA UNIV. OF CHICAGO (AMERICAS TOP RATED BUSINESS SCHOOL)</span>
+                                    <span>Tyrie Jamerson MBA University of Chicago (Americas Top Rated Business School)</span>
                                 </div>
                             </div>
                         </div>
