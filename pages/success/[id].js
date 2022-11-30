@@ -56,6 +56,7 @@ export default function ID(props) {
     }
 
     useEffect(() => {
+        console.log(navigator.userAgent)
         {!IP && getData()}
     })
 
