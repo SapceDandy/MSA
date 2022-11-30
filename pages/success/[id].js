@@ -101,7 +101,7 @@ export default function ID(props) {
                                         <div className = {styles.topGroupLeft} ><i style = {{color: "white", fontSize: "3rem"}}><FaCalendarAlt /></i></div>
                                         <div className = {styles.topGroupRight} >
                                             <span style = {{color: "turquoise"}}>SCHEDULE</span>
-                                            <span>Thursday, 22 November 2022, 12:00 NOON</span>
+                                            <span>Saturday, 17 December 2022, 12:00 NOON</span>
                                             <span style = {{color: "grey"}}>Central Time (US and Canada), GMT</span>
                                         </div>
                                     </div>
