@@ -76,7 +76,7 @@ export default function ID(props) {
                     </div>
                     <div className = {styles.mainSection}>
                         <div className = {styles.left}>
-                            <video style = {{width: "80%", height: "auto", maxWidth: "800px"}} controls preload = "auto" playsinline>
+                            <video style = {{width: "80%", height: "auto", background: "black", axWidth: "800px"}} controls preload = "auto" playsinline>
                                 <source src="/thankYouVideo.mp4" type="video/mp4" />
                                 Your browser does not support the video tag.
                             </video>
