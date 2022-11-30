@@ -3,7 +3,7 @@ import styles from "./success.module.css";
 import { FaCalendarAlt } from "react-icons/fa";
 import { BsFillPeopleFill } from "react-icons/bs";
 import emailjs from "@emailjs/browser";
-import Head from 'next/head'
+import Head from 'next/head';
 
 export  const getServerSideProps = (context) => {
     return {
@@ -52,7 +52,7 @@ export default function ID(props) {
             <div className = {styles.mainSection}>
                 <div className = {styles.left}>
                     <video style = {{width: "80%", height: "auto", maxWidth: "800px"}} controls>
-                        <source src="youtube.com" type="video/mp4" />
+                        <source src="https://www.youtube.com/watch?v=ZRZngn_GdXY" type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
                     <div className = {styles.textSection}>
