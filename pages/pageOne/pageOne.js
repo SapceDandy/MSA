@@ -18,7 +18,7 @@ export default function PageOne() {
     const [firstName, setFirstName] = useState("");
     const [email, setEmail] = useState("");
     const [IP, setIP] = useState("");
-    const [deviceWidth, setDeviceWidth] = useState()
+    const [deviceWidth, setDeviceWidth] = useState(451)
     const [schedule, setSchedule] = useState(currentDateString);
     const emailMatch = String(email).toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
     const noNumbers = String(firstName).match(/[0-9]/);
