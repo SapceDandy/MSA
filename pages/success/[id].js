@@ -27,11 +27,11 @@ export default function ID(props) {
     const isMatch = String(phone).match(/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/);
     const justNumbers = phone.match(/^\d{10}$/);
 
-    const getData =  useCallback(async () => {
+    const getData = async () => {
             await axios?.get('https://geolocation-db.com/json/').then((res) =>
                 setIP(res?.data?.IPv4)
             ).catch((error) => console.log(error))       
-    }, [axios])
+    }
 
     const pressed = () => {
         setPhoneButton(!phoneButton);
@@ -56,7 +56,7 @@ export default function ID(props) {
     }
 
     useEffect(() => {
-        {IP === "" && getData()}
+        {!IP && getData()}
     })
 
     return(
