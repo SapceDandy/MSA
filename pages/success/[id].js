@@ -1,4 +1,4 @@
-import {useState, useRef, useEffect } from "react";
+import {useState, useRef, useEffect, useCallback } from "react";
 import styles from "./success.module.css";
 import { FaCalendarAlt } from "react-icons/fa";
 import { BsFillPeopleFill } from "react-icons/bs";
@@ -27,11 +27,11 @@ export default function ID(props) {
     const isMatch = String(phone).match(/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/);
     const justNumbers = phone.match(/^\d{10}$/);
 
-    const getData = async () => {
-        const res = await axios?.get('https://geolocation-db.com/json/')
-        console.log(res?.data);
-        setIP(res?.data?.IPv4)
-    }
+    const getData =  useCallback(async () => {
+            await axios?.get('https://geolocation-db.com/json/').then((res) =>
+                setIP(res?.data?.IPv4)
+            ).catch((error) => console.log(error))       
+    }, [axios])
 
     const pressed = () => {
         setPhoneButton(!phoneButton);
@@ -56,12 +56,12 @@ export default function ID(props) {
     }
 
     useEffect(() => {
-        {!IP && getData()}
+        {IP === "" && getData()}
     })
 
     return(
         <>
-            {(props?.linkIP != IP) && (IP != "") && homescreen()}
+            {(props?.linkIP != IP) && !(!IP) && homescreen()}
             
             <Head>
                 <title>You Are Registered</title>
@@ -76,7 +76,7 @@ export default function ID(props) {
                     </div>
                     <div className = {styles.mainSection}>
                         <div className = {styles.left}>
-                            <video style = {{width: "80%", height: "auto", maxWidth: "800px"}} controls >
+                            <video style = {{width: "80%", height: "auto", maxWidth: "800px"}} controls preload = "auto" playsinline>
                                 <source src="/thankYouVideo.mp4" type="video/mp4" />
                                 Your browser does not support the video tag.
                             </video>

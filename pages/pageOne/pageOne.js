@@ -13,6 +13,7 @@ export default function PageOne() {
     const currentDate = new Date();
     const currentDateString = `${currentDate.getFullYear()}-${((currentDate.getMonth() + 1) < 10) ? "0" + (currentDate.getMonth() + 1) : (currentDate.getMonth() + 1)}-${currentDate.getDate()}`
     const [wasClicked, setWasClicked] = useState(false);
+    const [nextPage, setNextPage] = useState(false)
     const [firstName, setFirstName] = useState("");
     const [email, setEmail] = useState("");
     const [IP, setIP] = useState("")
@@ -21,9 +22,9 @@ export default function PageOne() {
     const noNumbers = String(firstName).match(/[0-9]/);
 
     const getData = async () => {
-        const res = await axios?.get('https://geolocation-db.com/json/')
-        console.log(res?.data);
-        setIP(res?.data?.IPv4)
+        await axios?.get('https://geolocation-db.com/json/').then((res) =>
+            setIP(res?.data?.IPv4)
+        ).catch((error) => console.log(error))
     }
 
     const click = () => {
@@ -36,6 +37,7 @@ export default function PageOne() {
         emailjs.sendForm('service_vr1v8ck', 'template_md9uxvc', form.current, 'TwOG1fPg9_FkuE3S3')
             .then((result) => {
                 click();
+                setNextPage(true)
                 router.push({
                     pathname: `/success/${uniqueValue}`,
                     query: {
@@ -57,6 +59,11 @@ export default function PageOne() {
 
     return (
         <>
+            {nextPage &&
+            <div style = {{display: "inline-flex", position: "fixed", background: "white", top: "0", bottom: "0", left: "0", right: "0", justifyContent: "center", alignItems: "center", zIndex: "1000"}}>
+                <Image src = "/loading-load.gif" alt = "image" title = "gif" width = "600" height = "400" style = {{zIndex: "2"}} />
+            </div>
+            }
             {(wasClicked) && (<div className = {styles.popUpWrapper}>
                 <div className = {styles.popUp}>
                     <div style = {{display: "inline-flex", width: "100%", justifyContent: "center", alignItems: "center", margin: ".75rem .25rem"}}>
@@ -99,7 +106,7 @@ export default function PageOne() {
             </div>
             <div className = {styles.middleTop}>
                 <div style = {{display: "inline-flex", width: "100%", justifyContent: "center", alignContent: "center"}}>
-                    <video style = {{width: "80%", height: "auto", maxWidth: "800px"}} autoPlay muted>
+                    <video style = {{width: "80%", height: "auto", maxWidth: "800px"}} autoPlay muted playsinline preload = "auto">
                         <source src="/intro.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
