@@ -4,6 +4,7 @@ import uniqid from 'uniqid';
 import Image from 'next/image';
 import emailjs from "@emailjs/browser";
 import { useRouter } from "next/router";
+import axios from 'axios';
 
 export default function PageOne() {
     const uniqueValue = uniqid();
@@ -14,17 +15,20 @@ export default function PageOne() {
     const [wasClicked, setWasClicked] = useState(false);
     const [firstName, setFirstName] = useState("");
     const [email, setEmail] = useState("");
+    const [IP, setIP] = useState("")
     const [schedule, setSchedule] = useState(currentDateString);
     const emailMatch = String(email).toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
     const noNumbers = String(firstName).match(/[0-9]/);
 
+    const getData = async () => {
+        const res = await axios?.get('https://geolocation-db.com/json/')
+        console.log(res?.data);
+        setIP(res?.data?.IPv4)
+    }
+
     const click = () => {
         setWasClicked(!wasClicked);
     }
-
-    useEffect(() => {
-        (wasClicked) ? document.body.classList.add('active') : document.body.classList.remove('active');
-    })
 
     const sendEmail = (e) => {
         e.preventDefault();
@@ -37,6 +41,7 @@ export default function PageOne() {
                     query: {
                         name: firstName,
                         email: email,
+                        ipAddress: IP,
                     }
                 })
                 e.target.reset();
@@ -44,6 +49,11 @@ export default function PageOne() {
                 console.log(error.text);
             });
     };
+
+    useEffect(() => {
+        {!IP && getData()}
+        (wasClicked) ? document.body.classList.add('active') : document.body.classList.remove('active');
+    })
 
     return (
         <>
@@ -62,14 +72,15 @@ export default function PageOne() {
                     <div style = {{display: "inline-flex", width: "100%", background: "lightgrey", height: "4px"}} />
                     <form ref = {form} onSubmit = {sendEmail}>
                         <h3>Enter your Name and Email Address below to register for the webinar and secure your seat</h3>
-                        <input value = {schedule} name = "webinar_date" type = "date" onChange = {(e) => setSchedule(e.target.value)} required/>
-                        {(currentDateString >= schedule) && (<span>Date must be in the future</span>)}
+                        {/*<input value = {schedule} name = "webinar_date" type = "date" onChange = {(e) => setSchedule(e.target.value)} required/>*/}
+                        <span style = {{fontSize: "1.25rem", margin: "0rem 0rem 1rem 0rem"}}>December 17th 2022</span>
+                        {/*(currentDateString >= schedule) && (<span>Date must be in the future</span>)*/}
                         <input placeholder = "First Name" name = "from_name" value = {firstName} onChange = {(e) => setFirstName(e.target.value)} required/>
                         {((!firstName) || (noNumbers)) && (<span>Please enter your name</span>)}
                         <input placeHolder = "Email" name = "user_email" type = "email" value = {email} onChange = {(e) => setEmail(e.target.value)} required/>
                         {((!emailMatch) || (!email)) && (<span>Please enter a valid email</span>)}
                         <div>
-                            <button className = "button" type = "submit" disabled = {(!firstName) || (noNumbers) || (!email) || (!emailMatch) || (currentDateString >= schedule)}>YES! RESERVE MY SEAT!</button>
+                            <button className = "button" type = "submit" disabled = {(!firstName) || (noNumbers) || (!email) || (!emailMatch) /*|| (currentDateString >= schedule)*/}>YES! RESERVE MY SEAT!</button>
                             🔒<small style = {{fontStyle: "italic"}}>Your Information is 100% Secure</small>
                         </div>
                     </form>
@@ -84,11 +95,15 @@ export default function PageOne() {
                 <div />
             </div>
             <div className = {styles.mainText}>
-                <h1 style = {{fontSize: "1.5rem"}}>"How to Double your Income as a Driver in 30 days or less. Stop giving away HALF of the Money you’ve EARNED to Uber and Lyft. Get ALL of your Money Immediately!!!“</h1>
+                <h1 style = {{fontSize: "1.5rem"}}>“How To Double Your Income As A Driver In 30 Days Or Less Without Giving Away Half Of The Money You’ve Earned To Uber And Lyft. Find Out How You Can Get Every Dollar of Every Ride Immediately.”</h1>
             </div>
             <div className = {styles.middleTop}>
                 <div style = {{display: "inline-flex", width: "100%", justifyContent: "center", alignContent: "center"}}>
-                    <Image src = "/DMN.JPG" alt = "image" title = "image" width = "600" height = "400" style = {{zIndex: "2"}} />
+                    <video style = {{width: "80%", height: "auto", maxWidth: "800px"}} autoPlay muted>
+                        <source src="/intro.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                    {/*<Image src = "/DMN.JPG" alt = "image" title = "image" width = "600" height = "400" style = {{zIndex: "2"}} />*/}
                 </div>
                 <div style = {{display: "inline-flex", width: "100%", justifyContent: "center", alignItems: "center", flexDirection: "column", rowGap: "2rem"}}>
                     <div style = {{display: "inline-flex", flexDirection: "column", width: "60%", justifyContent: "center", alignItems: "center"}}>
