@@ -210,13 +210,13 @@
 }
 
 .mainSection .right .group .bottomGroup form button:disabled {
-    color: black;
+    color: grey;
     background-color: lightgrey;
     cursor: default;
 } 
 
 .mainSection .right .group .bottomGroup form button:disabled:hover {
-    color: black;
+    color: grey;
     background-color: lightgrey;
 }
 

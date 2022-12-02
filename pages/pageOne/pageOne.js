@@ -109,11 +109,11 @@ export default function PageOne() {
             </div>
             <div className = {styles.middleTop}>
                 <div style = {{display: "inline-flex", width: "100%", justifyContent: "center", alignContent: "center"}}>
-                    {(deviceWidth > 450) && <video style = {{width: "80%", height: "auto", maxWidth: "800px"}} autoPlay muted playsinline preload = "auto">
+                    {/*(deviceWidth > 450) && <video style = {{width: "80%", height: "auto", maxWidth: "800px"}} autoPlay muted playsinline preload = "auto">
                         <source src="/intro.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
-                    </video>}
-                    {(deviceWidth <= 450) && <Image src = "/DMN.JPG" alt = "image" title = "image" width = "600" height = "400" style = {{zIndex: "2"}} />}
+                    </video>*/}
+                    <Image src = "/tyrieImage.png" alt = "image" title = "image" width = "682" height = "384" style = {{zIndex: "2"}} />
                 </div>
                 <div style = {{display: "inline-flex", width: "100%", justifyContent: "center", alignItems: "center", flexDirection: "column", rowGap: "2rem"}}>
                     <div style = {{display: "inline-flex", flexDirection: "column", width: "60%", justifyContent: "center", alignItems: "center"}}>
